@@ -13,6 +13,9 @@ const routes: Routes = [
   { path: 'not-found', component: NotFoundComponent, data: { breadcrumb: 'Server Error' } },
   { path: 'server-error', component: ServerErrorComponent, data: { breadcrumb: 'Not Found' } },
   { path: 'shop', data: { breadcrumb: 'Shop' }, loadChildren: () => import('./shop/shop.module').then(m => m.ShopModule), },
+  { path: 'basket', data: { breadcrumb: 'Basket' }, loadChildren: () => import('./basket/basket.module').then(m => m.BasketModule), },
+  { path: 'checkout', data: { breadcrumb: 'Checkout' }, loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutModule), },
+
 
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 ];
