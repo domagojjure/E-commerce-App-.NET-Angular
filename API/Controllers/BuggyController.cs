@@ -44,6 +44,10 @@ namespace API.Controllers
 
             var thingToReturn = thing.ToString();
 
+            if (thingToReturn==null) {
+                return StatusCode(500);
+            }
+
             return Ok();
         }
 
