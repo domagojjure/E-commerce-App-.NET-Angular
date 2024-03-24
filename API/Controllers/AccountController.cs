@@ -96,6 +96,12 @@ namespace API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
+            if (CheckEmailExistsAsync(registerDto.Email).Result.Value)//CheckEmailExistsAsync returns Task<ActionResult<T>> which means that we need .Result.Value to get the T value
+            {  
+                return new BadRequestObjectResult(new ApiValidationErrorResponse{Errors= new [] {"Email address is already in use"}});
+
+
+            }
             var user = new AppUser
             {
                 DisplayName = registerDto.DisplayName,

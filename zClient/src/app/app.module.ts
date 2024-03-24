@@ -13,16 +13,15 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, //declares that appclomponent belongs to the current module
 
   ],
-  imports: [
+  imports: [ //imports all the modules 
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
-
     HomeModule,
 
   ],
@@ -31,6 +30,6 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
 
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] //specifies the root component of the app
 })
 export class AppModule { }
